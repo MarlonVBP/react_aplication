@@ -1,18 +1,15 @@
 import { Link } from 'react-router-dom'
 import styles from './Header.module.css'
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 function Header() {
     return (
         <>
             {[false].map((expand) => (
-                <Navbar key={expand} expand={expand} bg="dark" data-bs-theme="dark" className="bg-body-tertiary mb-3 bg-primary">
+                <Navbar key={expand} expand={expand} bg="dark" data-bs-theme="dark" className="bg-body-tertiary bg-primary">
                     <Container fluid>
                         <Navbar.Brand href="#">Fotos do universo</Navbar.Brand>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />

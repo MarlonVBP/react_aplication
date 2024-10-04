@@ -1,42 +1,91 @@
-import Header from "../../components/Header"
-import Footer from "../../components/Footer"
-import styles from "./Contato.module.css"
-import Form from 'react-bootstrap/Form';
-import Button from "react-bootstrap/esm/Button"
+import { useState } from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import styles from "./Contato.module.css";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/esm/Button";
 
 function Contato() {
-    return (
-        <>
-            <Header />
-            <section className={styles.container}>
-                <Form className={styles.form}>
+  const [validated, setValidated] = useState(false);
 
-                    <Form.Group className={styles.contTitle} controlId="formBasicEmail">
-                        <p className={styles.formTitle}>Formulário de contato</p>
-                        <p className={styles.formSubTitle}><strong>Estamos aqui para ajudar!</strong></p>
-                    </Form.Group>
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
-                    <Form.Group className={styles.contInput} controlId="formBasicEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control className={styles.input} type="email" placeholder="Enter email" />
-                    </Form.Group>
+    setValidated(true);
+  };
 
-                    <Form.Group className={styles.contInput} controlId="formBasicNome">
-                        <Form.Label>Nome</Form.Label>
-                        <Form.Control className={styles.input} type="Nome" placeholder="Digite o seu nome" />
-                    </Form.Group>
+  return (
+    <>
+      <Header />
+      <section className={styles.container}>
+        <Form className={styles.form} noValidate validated={validated} onSubmit={handleSubmit}>
+          <Form.Group className={styles.contTitle} controlId="formBasicEmail">
+            <p className={styles.formTitle}>Formulário de contato</p>
+            <p className={styles.formSubTitle}>
+              <strong>Estamos aqui para ajudar!</strong>
+            </p>
+          </Form.Group>
 
-                    <Form.Group className={styles.contInput} controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Example textarea</Form.Label>
-                        <Form.Control placeholder="Digite a mensagem" as="textarea" rows={3} />
-                    </Form.Group>
-                    <Button className={styles.formButton} variant="primary" type="submit">
-                        Enviar
-                    </Button>
-                </Form>
-            </section>
-            <Footer />
-        </>
-    )
+          <Form.Group className={styles.contInput} controlId="formBasicEmail">
+            <Form.Label>Email:</Form.Label>
+            <Form.Control
+              className={styles.input}
+              type="email"
+              placeholder="Digite o seu email"
+              required // Adicionando a propriedade required
+            />
+            <Form.Control.Feedback type="invalid">
+              Por favor, insira um email válido.
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group className={styles.contInput} controlId="formBasicNome">
+            <Form.Label>Nome:</Form.Label>
+            <Form.Control
+              className={styles.input}
+              type="text" // Corrigido para "text" em vez de "Nome"
+              placeholder="Digite o seu nome"
+              required // Adicionando a propriedade required
+            />
+            <Form.Control.Feedback type="invalid">
+              Por favor, insira seu nome.
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group
+            className={styles.contInput}
+            controlId="exampleForm.ControlTextarea1"
+          >
+            <Form.Label>Mensagem:</Form.Label>
+            <Form.Control
+              placeholder="Digite a mensagem"
+              as="textarea"
+              rows={3}
+              required // Adicionando a propriedade required
+            />
+            <Form.Control.Feedback type="invalid">
+              Por favor, insira sua mensagem.
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          <div className={styles.contFormButton}>
+            <Button
+              className={styles.formButton}
+              variant="primary"
+              type="submit"
+            >
+              Enviar
+            </Button>
+          </div>
+        </Form>
+      </section>
+      <Footer />
+    </>
+  );
 }
-export default Contato
+
+export default Contato;

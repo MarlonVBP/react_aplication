@@ -52,7 +52,7 @@ function Sobre() {
           </Carousel>
             <h1>API da NASA</h1>
             <img src={rocket} alt="Rocket image" className={styles.laddingImg} />
-            <span>
+            <span className={styles.spanCarousel}>
               A API da NASA (Application Programming Interface) oferece acesso a
               uma vasta quantidade de dados e informações espaciais coletadas
               por suas missões e projetos. Ela permite a desenvolvedores

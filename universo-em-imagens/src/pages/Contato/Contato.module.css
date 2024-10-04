@@ -4,4 +4,47 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px;
+}
+
+.form {
+    height: auto;
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(171, 170, 170);
+}
+
+.contInput {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.contTitle{
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+}
+
+.formTitle {
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.formButton {
+    padding: 10px 27px;
+    border-radius: 15px;
+}
+
+.formButton:hover {
+    background: transparent;
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
 }

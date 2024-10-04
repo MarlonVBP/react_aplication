@@ -2,7 +2,8 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import styles from "./Home.module.css";
 import { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import Cards from "../../components/Card";
 
 function Home() {
   const [images, setImages] = useState([]);
@@ -36,17 +37,7 @@ function Home() {
         <section className={styles.cards}>
           {images.length ? (
             images.map((image) => (
-              <Card className={styles.card} key={image.url} style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src={image.url}
-                  className={styles.img}
-                />
-                <Card.Body className={styles.cardMain}>
-                  <Card.Title>{image.title}</Card.Title>
-                  <Button className={styles.cardButton} variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
+              <Cards key={image.url} image={image.url} title={image.title} description={image.explanation} />
             ))
           ) : (
             <p></p>

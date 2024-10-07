@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
 import styles from "./Card.module.css";
 import SpinnerLoading from "../Spinner";

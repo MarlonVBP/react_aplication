@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import styles from "./Contato.module.css";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/esm/Button";
+import { Button } from "react-bootstrap";
 
 function Contato() {
   const [validated, setValidated] = useState(false);
@@ -67,6 +67,21 @@ function Contato() {
               rows={3}
               required // Adicionando a propriedade required
             />
+            <Form.Control.Feedback type="invalid">
+              Por favor, insira sua mensagem.
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group
+            className={styles.contInput}
+            controlId="exampleForm.ControlTextarea1"
+          >
+            <Form.Label>Tipo de contato:</Form.Label>
+            <Form.Select aria-label="Default select example">
+              <option value="1" selected>Contato</option>
+              <option value="2">Melhoria</option>
+              <option value="3">Reclamação</option>
+            </Form.Select>
             <Form.Control.Feedback type="invalid">
               Por favor, insira sua mensagem.
             </Form.Control.Feedback>

@@ -6,7 +6,7 @@ import Login from './pages/Login'
 
 function AppRoutes() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="https://marlonvbp.github.io/react_aplication/">
             <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/contato" element={<Contato />}></Route>
